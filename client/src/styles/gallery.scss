@@ -1,0 +1,90 @@
+@mixin backgroundOptions {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+$defaultWidthWrapperOther: 1365px;
+
+.gallery {
+  width: 100%;
+  height: 716px;
+  overflow: hidden;
+  position: relative;
+  .boxContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    transition: 0.7s;
+    .box {
+      height: 100%;
+      @include backgroundOptions();
+    }
+  }
+  .gallery_navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    .wrapper {
+      position: relative;
+      width: $defaultWidthWrapperOther;
+      .galleryButton {
+        position: absolute;
+        padding: 0;
+        display: block;
+        width: 23.87px;
+        height: 44.07px;
+        background: none;
+        border: none;
+        z-index: 1;
+      }
+      .galleryButton img {
+        width: 100%;
+        height: 100%;
+      }
+      .galleryButtonLeft {
+        left: 0;
+      }
+      .galleryButtonRight {
+        right: 0;
+      }
+    }
+  }
+  .navigation_panel {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    text-align: center;
+    z-index: 3;
+  }
+  .navigation_panel li {
+    display: inline-block;
+    width: 62px;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.5;
+    cursor: pointer;
+    text-indent: -9999px;
+  }
+  .navigation_panel .active {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  $defaultWidthWrapperOther: 1200px;
+  $defaultWidthWrapper: 900px;
+  .gallery .gallery_navigation .wrapper {
+    width: $defaultWidthWrapperOther;
+  }
+}

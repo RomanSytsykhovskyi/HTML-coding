@@ -1,0 +1,1005 @@
+@import url(nullstyle.scss);
+@import url(gallery.scss);
+
+//fonts
+
+//Montserrat
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-ThinItalic.woff2") format("woff2"),
+    url("../fonts/Montserrat/Montserrat-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Thin.woff2") format("woff2"),
+    url("../fonts/Montserrat/Montserrat-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/bold Montserrat/Montserrat-Bold.woff2") format("woff2"),
+    url("../fonts/bold Montserrat/Montserrat-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/regular Montserrat/Montserrat-Regular.woff2")
+      format("woff2"),
+    url("../fonts/regular Montserrat/Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+//mixins
+@mixin backgroundOptions {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin shadow {
+  -webkit-box-shadow: 0px 9px 10px -6px rgba(0, 0, 0, 0.37);
+  box-shadow: 0px 9px 10px -6px rgba(0, 0, 0, 0.37);
+}
+
+//valuebles
+$defaultWidthBody: 1440px;
+$defaultWidthWrapperOther: 1365px;
+$defaultWidthWrapper: 1051px;
+$widthGridArtist: 239px;
+$widthGridAlbum: 239px;
+$widthGridNews: 348px;
+$color: #252b42;
+$colorGray: #737373;
+$colorGray1: #bdbdbd;
+$colorWhite: #fafafa;
+$colorBlue: #23a6f0;
+
+body {
+  //width: $defaultWidthBody;
+
+  //font
+  font-size: 14px;
+  font-family: "Montserrat", Arial;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  //overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+.wrapper {
+  width: $defaultWidthWrapper;
+  margin: 0 auto;
+}
+
+.logo h1 {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+ul li ul .logo h1 a,
+.logo h1 a {
+  font-size: 24px;
+  font-weight: bold;
+  color: $color;
+}
+
+nav {
+  width: 100%;
+  .wrapper {
+    width: $defaultWidthWrapperOther;
+  }
+  .NavBarTop {
+    height: 58px;
+    background: $color;
+    .wrapper {
+      height: 100%;
+    }
+    ul {
+      display: flex;
+    }
+    .wrapper > ul {
+      height: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li li:last-child {
+      margin-right: 0;
+    }
+    a,
+    li {
+      color: #fff;
+    }
+    li li {
+      margin-right: 10px;
+    }
+    li li,
+    li {
+      letter-spacing: 1.2px;
+    }
+    li li a {
+      padding: 5px;
+      display: inline-flex;
+      align-items: center;
+      transition: 0.7s;
+    }
+    li .sprite a::before {
+      content: "";
+      display: inline-block;
+      @include backgroundOptions();
+      filter: contrast(100%);
+      transition: 0.7s;
+    }
+    .phone {
+      margin-right: 5px;
+    }
+    .phone a {
+      padding-left: 0;
+    }
+    .phone a::before {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      background: url("../images/header/phone.png");
+    }
+    .email a::before {
+      width: 16px;
+      height: 12px;
+      margin-right: 5px;
+      background: url("../images/header/envelope.png");
+    }
+    .follow_sprite a {
+      vertical-align: middle;
+    }
+    .follow_sprite img {
+      filter: contrast(100%);
+      transition: 0.7s;
+    }
+    .instagram {
+      margin-right: 4.5px;
+    }
+    .instagram img {
+      width: 16px;
+    }
+    .youtube {
+      margin-right: 3px;
+    }
+    .youtube img {
+      width: 16px;
+      height: 11.24px;
+    }
+    .facebook {
+      margin-right: 4.5px;
+    }
+    .facebook img {
+      width: 16px;
+    }
+    .twitter img {
+      width: 16px;
+      height: 13px;
+    }
+    a:hover {
+      color: $colorGray;
+    }
+    li li a:hover::before {
+      filter: contrast(10%);
+    }
+    .follow_sprite:hover img {
+      filter: contrast(10%);
+    }
+  }
+  .NavBarBottom {
+    padding: 12px 0 8px;
+    .wrapper {
+      height: 58px;
+    }
+    ul {
+      display: flex;
+    }
+    .wrapper > ul {
+      justify-content: space-between;
+    }
+    .wrapper ul,
+    .wrapper > ul li {
+      height: 100%;
+    }
+    .wrapper > ul li {
+      display: inline-flex;
+      height: 100%;
+      align-items: center;
+    }
+    li li {
+      margin-right: 15px;
+    }
+    li li:last-child {
+      margin-right: 0;
+    }
+    li li a {
+      color: $colorGray;
+      display: inline-flex;
+      height: 100%;
+      align-items: center;
+      transition: 0.7s;
+    }
+    li li a:hover {
+      color: $color;
+    }
+    .logo {
+      margin-right: 72px;
+    }
+    .lyrics {
+      margin-right: 20px;
+    }
+    li .commonNavStyle::before,
+    li li .commonNavStyle::before,
+    li li .commonNavStyle::after {
+      @include backgroundOptions();
+    }
+    .dropDownList {
+      position: relative;
+    }
+    .dropDownList > a::after {
+      content: "";
+      margin-left: 9px;
+      display: inline-block;
+      width: 10px;
+      height: 5.71px;
+      background: url("../images/header/drop down.png");
+      transform: rotate(-90deg);
+      transition: 0.7s;
+    }
+    .dropDownList ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 3;
+      display: block;
+    }
+    .dropDownList ul li {
+      display: block;
+      height: 0;
+      width: 200px;
+      overflow: hidden;
+      background: #fff;
+      transition: 0.7s;
+    }
+    .dropDownList:hover li {
+      height: 30px;
+    }
+    .dropDownList:hover > a {
+      color: $color;
+    }
+    .dropDownList:hover > a::after {
+      transform: rotate(0deg);
+    }
+    .dropDownList ul a {
+      width: 100%;
+    }
+    .artist {
+      margin-right: 18px;
+    }
+    .contact {
+      margin-right: 14px;
+    }
+    .consumersTool,
+    .consumersTool a,
+    .consumersTool a:hover {
+      color: $colorBlue;
+    }
+    .consumersTool a {
+      padding: 5px;
+    }
+    .login_and_register {
+      cursor: pointer;
+    }
+    .login_and_register::before {
+      content: "";
+      margin-right: 5px;
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: url("../images/header/person.png");
+    }
+    .search {
+      margin-right: 15px;
+    }
+    .search img {
+      width: 16px;
+    }
+    .buy {
+      margin-right: 15px;
+    }
+    .buy a::before {
+      content: "";
+      margin-right: 6px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: url("../images/header/cart.png");
+    }
+    .loved a::before {
+      content: "";
+      margin-right: 5px;
+      display: block;
+      width: 16px;
+      height: 15px;
+      background: url("../images/header/loved.png");
+    }
+  }
+}
+
+.pratimbimba {
+  margin-top: 210px;
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+    color: #fff;
+  }
+  h2 {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-size: 58px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 80px;
+    color: #fff;
+  }
+  p {
+    margin-bottom: 35px;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 0.6px;
+    line-height: 30px;
+    color: $colorWhite;
+  }
+  button {
+    padding: 15px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    line-height: 32px;
+    color: #fff;
+    background: #211dca;
+    border: none;
+  }
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.1px;
+  line-height: 32px;
+  color: $color;
+  text-transform: uppercase;
+  text-align: center;
+}
+.paragraph {
+  margin-bottom: 48px;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  color: $colorGray;
+  text-align: center;
+}
+
+.artists {
+  padding-top: 80px;
+  width: 100%;
+  height: 770px;
+  background: $colorWhite;
+  box-sizing: border-box;
+  .artists_grid {
+    display: grid;
+    width: 100%;
+    height: 500px;
+    grid-template-columns: $widthGridArtist $widthGridArtist $widthGridArtist $widthGridArtist;
+    justify-content: space-between;
+    row-gap: 16px;
+    .grid_box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      background-blend-mode: multiply;
+      background-color: rgba(33, 33, 33, 0.25);
+      @include shadow();
+      @include backgroundOptions();
+      .McNickname {
+        margin-bottom: 26px;
+        margin-left: 31px;
+        padding: 12px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+        line-height: 24px;
+        background: #fff;
+        border-radius: 5px;
+        color: $color;
+      }
+    }
+    .grid_box1 {
+      grid-area: 1 / 1 / span 2 / span 2;
+      background: url("../images/artists/Yama Buddha.jpg");
+    }
+    .grid_box2 {
+      grid-row: 1 / span 2;
+      background: url("../images/artists/Vten.jpg");
+    }
+    .grid_box3 {
+      background: url("../images/artists/Laure.jpg");
+    }
+    .grid_box4 {
+      background: url("../images/artists/MC flo.jpg");
+    }
+  }
+}
+
+.releases {
+  padding-top: 80px;
+  width: 100%;
+  height: 1652px;
+  box-sizing: border-box;
+  .subtitle {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+    line-height: 30px;
+    text-align: center;
+    color: $colorGray;
+  }
+  .title {
+    margin-top: 10px;
+  }
+  .paragraph {
+    margin-bottom: 80px;
+  }
+  .albums_grid {
+    display: grid;
+    width: 100%;
+    height: 1310px;
+    row-gap: 15px;
+    grid-template-columns: $widthGridAlbum $widthGridAlbum $widthGridAlbum $widthGridAlbum;
+    justify-content: space-between;
+    .grid_box {
+      height: 615px;
+      @include shadow();
+      .cover {
+        margin-bottom: 25px;
+        width: 100%;
+        height: 427px;
+        @include backgroundOptions();
+      }
+      h2 {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+        line-height: 24px;
+        color: $color;
+        text-align: center;
+      }
+      p {
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        color: $colorGray;
+        text-align: center;
+      }
+      .price {
+        margin-bottom: 15px;
+        text-align: center;
+        li {
+          display: inline-block;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0.1px;
+          line-height: 24px;
+          color: #23856d;
+        }
+        li:first-child {
+          margin-right: 5px;
+          color: $colorGray1;
+        }
+      }
+      .circles {
+        text-align: center;
+        li {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          margin-right: 6.08px;
+          text-indent: -9999px;
+        }
+        li:last-child {
+          margin-right: 0;
+        }
+        .circle1 {
+          background: $colorBlue;
+        }
+        .circle2 {
+          background: #23856d;
+        }
+        .circle3 {
+          background: #e77c40;
+        }
+        .circle4 {
+          background: #252b42;
+        }
+      }
+    }
+  }
+}
+
+.ayina {
+  margin-top: 112px;
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    width: 50%;
+  }
+  .buyAyina {
+    padding-top: 60px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    h3 {
+      margin-bottom: 30px;
+      font-size: 20px;
+      font-weight: normal;
+      letter-spacing: 0.2px;
+      line-height: 30px;
+      color: #fff;
+    }
+    h2 {
+      margin-bottom: 30px;
+      font-size: 58px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      line-height: 80px;
+      color: #fff;
+    }
+    p {
+      margin-bottom: 30px;
+      font-size: 14px;
+      font-weight: normal;
+      letter-spacing: 0.2px;
+      line-height: 20px;
+      color: #fff;
+    }
+    li {
+      margin-right: 34px;
+      display: inline-block;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      line-height: 32px;
+      color: #fff;
+    }
+    button {
+      padding: 15px 40px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      line-height: 22px;
+      background: #211dca;
+      color: #fff;
+      border: none;
+    }
+  }
+  .imgAyina {
+    padding: 0 40px;
+    box-sizing: border-box;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.NepaliRapNew {
+  height: 682px;
+  .wrapper {
+    padding: 0 0 0 95px;
+    width: $defaultWidthWrapperOther;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    > div {
+      width: 50%;
+    }
+    .Rapper {
+      padding: 0;
+      height: 100%;
+
+      background: url("../images/news/firstNew.jpg");
+      @include backgroundOptions();
+    }
+    .info {
+      padding: 178px 0 0 95px;
+      box-sizing: border-box;
+      h3 {
+        margin-bottom: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+        line-height: 24px;
+        color: $colorGray1;
+      }
+      h2 {
+        margin-bottom: 30px;
+        font-size: 40px;
+        font-weight: bold;
+        letter-spacing: 0.2px;
+        line-height: 50px;
+        color: $color;
+      }
+      p {
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: normal;
+        letter-spacing: 0.2px;
+        line-height: 30px;
+        color: $colorGray;
+      }
+      button {
+        padding: 15px 40px;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.2px;
+        line-height: 22px;
+        color: #2dc071;
+        background: #fff;
+        border: 1px solid #2dc071;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.NepaliRapNews {
+  padding-top: 112px;
+  width: 100%;
+  height: 1044px;
+  box-sizing: border-box;
+  h3 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    text-align: center;
+    color: $colorBlue;
+  }
+  h2 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 50px;
+    text-align: center;
+    color: $color;
+  }
+  img {
+    margin: 10px auto;
+    display: block;
+    width: 154px;
+  }
+  h4 {
+    margin-bottom: 80px;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+    line-height: 20px;
+    text-align: center;
+    color: $colorGray;
+  }
+
+  .news_grid {
+    display: grid;
+    grid-template-columns: $widthGridNews $widthGridNews $widthGridNews;
+    justify-content: space-between;
+    .grid_box {
+      height: 586px;
+      @include shadow();
+      .cover {
+        padding-top: 20px;
+        width: 100%;
+        height: 300px;
+        box-sizing: border-box;
+        @include backgroundOptions();
+        span {
+          margin-left: 20px;
+          padding: 2.5px 10px;
+          font-size: 14px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
+          line-height: 24px;
+          text-transform: uppercase;
+          color: #fff;
+          background: #e74040;
+          border-radius: 3px;
+        }
+      }
+      .rest {
+        padding: 0 25px;
+        width: 100%;
+        box-sizing: border-box;
+        .options {
+          margin-top: 25px;
+          margin-bottom: 10px;
+          li {
+            margin-right: 15px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: normal;
+            letter-spacing: 0.2px;
+            line-height: 16px;
+            color: $colorGray;
+          }
+          .active {
+            color: #8ec2f2;
+          }
+        }
+        h2 {
+          margin-bottom: 10px;
+          font-size: 20px;
+          font-weight: normal;
+          letter-spacing: 0.2px;
+          line-height: 30px;
+          text-align: justify;
+          color: $color;
+        }
+        p {
+          margin-bottom: 10px;
+          font-size: 14px;
+          font-weight: normal;
+          letter-spacing: 0.2px;
+          line-height: 20px;
+          color: $colorGray;
+        }
+        .infoNews {
+          margin-bottom: 25px;
+          display: flex;
+          justify-content: space-between;
+          li {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: normal;
+            letter-spacing: 0.2px;
+            line-height: 16px;
+            color: $colorGray;
+          }
+          li::before {
+            content: "";
+            @include backgroundOptions();
+          }
+          .date::before {
+            margin-right: 6.53px;
+            width: 12.94px;
+            height: 13.14px;
+            background-image: url("../images/news/clock.jpg");
+          }
+          .commentsQuantity::before {
+            margin-right: 5px;
+            width: 16px;
+            height: 14.67px;
+            background-image: url("../images/news/curvy.jpg");
+          }
+        }
+        button {
+          padding: 0;
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
+          line-height: 24px;
+          color: $colorGray;
+          background: none;
+          border: none;
+        }
+        button::after {
+          content: "";
+          margin-left: 10px;
+          display: block;
+          width: 8.62px;
+          height: 16px;
+          @include backgroundOptions();
+          background-image: url("../images/news/arrow.jpg");
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  .footerTop {
+    display: flex;
+    align-items: center;
+    height: 142px;
+    background: $colorWhite;
+    .wrapper {
+      ul {
+        display: flex;
+      }
+      > ul {
+        justify-content: space-between;
+        align-items: center;
+      }
+      .messengers {
+        li {
+          display: flex;
+          align-items: center;
+        }
+        .facebook {
+          margin-right: 20.5px;
+        }
+        .facebook img {
+          width: 23px;
+        }
+        .instagram {
+          margin-right: 20.5px;
+        }
+        .instagram img {
+          width: 22px;
+        }
+        .twitter img {
+          width: 22px;
+        }
+      }
+    }
+  }
+  .footerMiddle {
+    height: 272px;
+    display: flex;
+    align-items: center;
+    .wrapper {
+      > ul {
+        display: flex;
+        justify-content: space-between;
+      }
+      .column {
+        li {
+          margin-bottom: 10px;
+        }
+        li a,
+        label {
+          font-size: 14px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
+          line-height: 24px;
+          color: $colorGray;
+        }
+        .liTitle {
+          margin-bottom: 20px;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0.1px;
+          line-height: 24px;
+          color: $color;
+        }
+        input {
+          padding: 15px 107px 15px 40px;
+          font-size: 14px;
+          font-weight: normal;
+          letter-spacing: 0.2px;
+          line-height: 28px;
+          color: $colorGray;
+          border: 1px solid #e6e6e6;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        button {
+          padding: 15px 22.5px;
+          font-size: 14px;
+          letter-spacing: 0.2px;
+          line-height: 28px;
+          color: #fff;
+          background: #23a6f0;
+          border: 1px solid #e6e6e6;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+  .footerBottom {
+    height: 74px;
+    display: flex;
+    align-items: center;
+    background: $colorWhite;
+    p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      line-height: 24px;
+      color: $colorGray;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1439.9px) {
+  $defaultWidthWrapperOther: 1200px;
+  $defaultWidthWrapper: 900px;
+  $widthGridArtist: 200px;
+  $widthGridAlbum: 200px;
+  $widthGridNews: 280px;
+  .wrapper {
+    width: $defaultWidthWrapper;
+  }
+  nav .wrapper {
+    width: $defaultWidthWrapperOther;
+  }
+  .artists {
+    height: 660px;
+    .artists_grid {
+      height: 400px;
+      grid-template-columns: $widthGridArtist $widthGridArtist $widthGridArtist $widthGridArtist;
+    }
+  }
+
+  .releases {
+    height: 1250px;
+    .albums_grid {
+      height: 100px;
+      grid-template-columns: $widthGridAlbum $widthGridAlbum $widthGridAlbum $widthGridAlbum;
+      .grid_box {
+        height: 450px;
+        .cover {
+          height: 280px;
+        }
+      }
+    }
+  }
+  .NepaliRapNew {
+    height: 540px;
+    .wrapper {
+      padding: 0;
+      width: $defaultWidthWrapper;
+      .info {
+        padding: 40px 0 0 40px;
+      }
+    }
+  }
+  .NepaliRapNews {
+    .news_grid {
+      grid-template-columns: $widthGridNews $widthGridNews $widthGridNews;
+      .grid_box {
+        height: 550px;
+        .cover {
+          height: 250px;
+        }
+        .rest {
+          h2 {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  #email {
+    padding-right: 25px;
+  }
+}
